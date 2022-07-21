@@ -1,9 +1,12 @@
-import React from "react";
-import logo from "./logo.svg";
+import PostsList from "./features/posts/PostsList";
 import "./App.css";
 
 function App() {
-    return <main className="App"></main>;
+    return (
+        <main className="App">
+            <PostsList />
+        </main>
+    );
 }
 
 export default App;
