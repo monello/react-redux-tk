@@ -1,7 +1,13 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
 
-const initialState = [
+interface IPosts {
+    id: string;
+    title: string;
+    content: string;
+}
+
+const initialState: Array<IPosts> = [
     {
         id: '1',
         title: 'Learning Redux Toolkit',
