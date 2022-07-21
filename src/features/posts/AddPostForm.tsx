@@ -1,6 +1,12 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { nanoid } from "@reduxjs/toolkit";
+
+import { postsActions } from "./postsSlice";
 
 const AddPostForm = () => {
+    const dispatch = useDispatch();
+
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
 
@@ -8,6 +14,20 @@ const AddPostForm = () => {
         setTitle(e.target.value);
     const onContentChanged = (e: React.ChangeEvent<HTMLTextAreaElement>) =>
         setContent(e.target.value);
+
+    const onSavePostClick = () => {
+        if (title && content) {
+            dispatch(
+                postsActions.postAdded({
+                    id: nanoid(),
+                    title,
+                    content,
+                })
+            );
+            setTitle("");
+            setContent("");
+        }
+    };
 
     return (
         <section>
@@ -28,6 +48,9 @@ const AddPostForm = () => {
                     value={content}
                     onChange={onContentChanged}
                 ></textarea>
+                <button type="button" onClick={onSavePostClick}>
+                    Save Post
+                </button>
             </form>
         </section>
     );
