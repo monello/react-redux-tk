@@ -12,6 +12,7 @@ const initialState = [
         content: "The more I say slice, the more I want pizza.",
     }
 ];
+
 const postsSlice = createSlice({
     name: 'posts',
     initialState,
