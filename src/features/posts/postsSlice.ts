@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { RootState } from "../../app/store";
 
 const initialState = [
     {
@@ -20,5 +21,7 @@ const postsSlice = createSlice({
 
     }
 });
+
+export const getAllPosts = (state: RootState) => state.posts;
 
 export default postsSlice.reducer;

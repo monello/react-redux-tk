@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
-import { RootState } from "../../app/store";
+import { getAllPosts } from "./postsSlice";
 
 import React from "react";
 
 const PostsList = () => {
-    const posts = useSelector((state: RootState) => state.posts);
+    const posts = useSelector(getAllPosts);
 
     const renderedPosts = posts.map((post) => (
         <article key={post.id}>
