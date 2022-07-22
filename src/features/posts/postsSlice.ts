@@ -6,6 +6,7 @@ interface IPosts {
     id: string;
     title: string;
     content: string;
+    userId?: string;
 }
 
 const initialState: Array<IPosts> = [
@@ -29,11 +30,12 @@ const postsSlice = createSlice({
             reducer: (state, action: PayloadAction<IPosts>) => {
                 state.push(action.payload);
             },
-            prepare: (title: string, content: string) => ({
+            prepare: (title: string, content: string, userId: string) => ({
                 payload: {
                     id: nanoid(),
                     title,
-                    content
+                    content,
+                    userId
                 }
             })
 
