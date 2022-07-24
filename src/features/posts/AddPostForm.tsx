@@ -1,17 +1,17 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
 
 import { postsActions } from "./postsSlice";
 import { selectAllUsers } from "../users/usersSlice";
 
 const AddPostForm = () => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [userId, setUserId] = useState("");
 
-    const users = useSelector(selectAllUsers);
+    const users = useAppSelector(selectAllUsers);
 
     const onTitleChanged = (e: React.ChangeEvent<HTMLInputElement>) =>
         setTitle(e.target.value);
